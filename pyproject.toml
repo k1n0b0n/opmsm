@@ -1,0 +1,27 @@
+[project]
+name = "opmsm"
+version = "0.1.0"
+description = "Restore OnePlus phones from official MSM packages on macOS and Linux, with a hard DDR check before any write"
+readme = "README.md"
+license = "GPL-3.0-or-later"
+requires-python = ">=3.10"
+dependencies = [
+    "docopt",
+    "edlclient",
+]
+
+[project.scripts]
+opmsm = "opmsm.cli:main"
+
+[dependency-groups]
+dev = ["pytest"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.uv.sources]
+edlclient = { git = "https://github.com/bkerler/edl", rev = "1cda1a616748d608667b2d13b73a28d3197ceb45" }
